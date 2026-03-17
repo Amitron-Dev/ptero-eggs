@@ -39,6 +39,12 @@ fi
 
 # NGINX if else WIP
 echo "⏳ Starting Nginx..."
+
+
+# Final message
+log_success "Web server is running. All services started successfully."
+/usr/sbin/nginx -c /home/container/nginx/nginx.conf -p /home/container/
+
 echo " "
 echo " "
 echo " "
@@ -53,11 +59,5 @@ echo "---------------------------------------"
 echo " "
 echo " "
 echo " "
-
-# Final message
-log_success "Web server is running. All services started successfully."
-/usr/sbin/nginx -c /home/container/nginx/nginx.conf -p /home/container/
-
-
 # Keep the container running (optional, depending on your container setup)
 tail -f /dev/null
