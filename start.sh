@@ -39,16 +39,20 @@ fi
 
 # NGINX if else WIP
 echo "⏳ Starting Nginx..."
-echo ""
-echo ""
-echo ""
+echo " "
+echo " "
+echo " "
 echo "---------------------------------------"
 echo "Copier l'ip au dessus, à coter du texte Online"
 echo "Pour changer de domaine, allez faire un ticket sur le site"
+echo " "
+echo "Vous pouvez modifié le code de votre site en allant"
+echo "dans Gestionnaire de fichier, puis le code se trouve dans"
+echo "le dosier webroot"
 echo "---------------------------------------"
-echo ""
-echo ""
-echo ""
+echo " "
+echo " "
+echo " "
 
 # Final message
 log_success "Web server is running. All services started successfully."
