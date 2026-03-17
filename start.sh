@@ -18,6 +18,20 @@ log_warning() {
 log_error() {
     echo -e "${RED}[ERROR] $1${RESET}"
 }
+echo " "
+echo " "
+echo " "
+echo "---------------------------------------"
+echo "Copier l'ip au dessus, à coter du texte Online"
+echo "Pour changer de domaine, allez faire un ticket sur le site"
+echo " "
+echo "Vous pouvez modifié le code de votre site en allant"
+echo "dans Gestionnaire de fichier, puis le code se trouve dans"
+echo "le dosier webroot"
+echo "---------------------------------------"
+echo " "
+echo " "
+echo " "
 
 # Clean up temp directory
 echo "⏳ Cleaning up temporary files..."
@@ -45,19 +59,6 @@ echo "⏳ Starting Nginx..."
 log_success "Web server is running. All services started successfully."
 /usr/sbin/nginx -c /home/container/nginx/nginx.conf -p /home/container/
 
-echo " "
-echo " "
-echo " "
-echo "---------------------------------------"
-echo "Copier l'ip au dessus, à coter du texte Online"
-echo "Pour changer de domaine, allez faire un ticket sur le site"
-echo " "
-echo "Vous pouvez modifié le code de votre site en allant"
-echo "dans Gestionnaire de fichier, puis le code se trouve dans"
-echo "le dosier webroot"
-echo "---------------------------------------"
-echo " "
-echo " "
-echo " "
+
 # Keep the container running (optional, depending on your container setup)
 tail -f /dev/null
