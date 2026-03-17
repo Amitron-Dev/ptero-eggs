@@ -1,110 +1,136 @@
-<?php
-// Get the PHP version
-$phpVersion = phpversion();
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Version Info</title>
+    <title>Installation réussie</title>
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #0A192F;
+            --secondary-blue: #007bff;
+            --text-light-gray: #E0E0E0;
+            --text-dark-gray: #A0A0A0;
+            --card-bg: #1A202C;
+            --border-color: #334155;
+
+            --glow-color: var(--secondary-blue);
+            --glow-spread: 0 0 15px rgba(0, 123, 255, 0.7);
+            --gradient-angle: 45deg;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7fc;
-            color: #333;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--primary-blue);
+            color: var(--text-light-gray);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .background-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(var(--gradient-angle), var(--primary-blue), #0f1c3f);
+            opacity: 0.8;
+            z-index: 0;
+            animation: gradient-anim 10s ease infinite alternate;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient-anim {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         .container {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: var(--card-bg);
             padding: 40px;
-            text-align: center;
-            width: 80%;
-            max-width: 600px;
+            border-radius: 15px;
+            max-width: 700px;
+            width: 100%;
+            z-index: 1;
+            border: 1px solid var(--border-color);
         }
 
         h1 {
             font-size: 2.5em;
-            color: #2c3e50;
-            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: var(--glow-spread);
         }
 
         p {
             font-size: 1.2em;
-            color: #34495e;
-            margin-bottom: 30px;
+            margin: 20px 0;
         }
 
-        .php-version {
-            background-color: #2980b9;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 1.5em;
-            margin-bottom: 20px;
+        .status {
+            font-size: 1.4em;
+            color: #00ffcc;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #00ffcc;
         }
 
-        .message {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #27ae60;
-            margin-bottom: 30px;
-        }
-
-        .webroot-message {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #e67e22;
-            margin-bottom: 30px;
-        }
-
-        .footer {
-            font-size: 1em;
-            color: #7f8c8d;
-        }
-
-        .footer a {
-            color: #2980b9;
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--secondary-blue), #0056b3);
+            color: #fff;
             text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 20px;
         }
 
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            p {
-                font-size: 1em;
-            }
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: var(--text-dark-gray);
         }
     </style>
 </head>
 <body>
+    <div class="background-gradient"></div>
 
-<div class="container">
-    <h1>Webserver Correctly Installed</h1>
-    <p>Your current PHP version is:</p>
-    <div class="php-version"><?php echo $phpVersion; ?></div>
-    <div class="message">Webserver correctly installed and running!</div>
-    <div class="webroot-message">You can now place your website files in the webroot folder</div>
-    <div class="footer">
-        <p>Powered by <a href="https://sigmaprods.dev" target="_blank">sigmaprods.dev</a></p>
+    <div class="container">
+        <h1>Installation réussie !</h1>
+
+        <p>Votre serveur web est maintenant opérationnel.</p>
+
+        <div class="status">
+            ✔ Nginx fonctionnel<br>
+            ✔ PHP actif<br>
+            ✔ Environnement prêt
+        </div>
+
+        <a href="#" class="button">Commencer</a>
+
+        <footer>
+            AMIHOST
+        </footer>
     </div>
-</div>
 
+    <script>
+        let angle = 45;
+        let direction = 1;
+
+        setInterval(() => {
+            const root = document.documentElement;
+            if (angle >= 315) direction = -1;
+            if (angle <= 45) direction = 1;
+            angle += direction * 0.5;
+            root.style.setProperty('--gradient-angle', `${angle}deg`);
+        }, 50);
+    </script>
 </body>
 </html>
