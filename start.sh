@@ -43,5 +43,16 @@ echo "⏳ Starting Nginx..."
 log_success "Web server is running. All services started successfully."
 /usr/sbin/nginx -c /home/container/nginx/nginx.conf -p /home/container/
 
+echo ""
+echo ""
+echo ""
+echo "---------------------------------------"
+echo "Copier l'ip au dessus, à coter du texte Online"
+echo "Pour changer de domaine, allez faire un ticket sur le site"
+echo "---------------------------------------"
+echo ""
+echo ""
+echo ""
+
 # Keep the container running (optional, depending on your container setup)
 tail -f /dev/null
